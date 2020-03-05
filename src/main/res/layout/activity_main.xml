@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/charName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="Character Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/toSpeciesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="64dp"
+        android:onClick="sendMessage"
+        android:text="Next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/pickYourRace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/choose_pb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/charName" />
+
+    <RadioGroup
+        android:id="@+id/playbookRadio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:checkedButton="@id/radioButton_ARBITER"
+        app:layout_constraintStart_toEndOf="@+id/pickYourRace"
+        app:layout_constraintTop_toBottomOf="@+id/charName">
+
+        <RadioButton
+            android:id="@+id/radioButton_ARBITER"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:text="Arbiter"
+            app:layout_constraintStart_toEndOf="@+id/pickYourRace"
+            app:layout_constraintTop_toBottomOf="@+id/charName" />
+
+        <RadioButton
+            android:id="@+id/radioButton_RANGER"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:text="Ranger"
+            app:layout_constraintStart_toEndOf="@+id/pickYourRace"
+            app:layout_constraintTop_toBottomOf="@+id/charName" />
+
+        <RadioButton
+            android:id="@+id/radioButton_SCOUNDREL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:text="Scoundrel"
+            app:layout_constraintStart_toEndOf="@+id/pickYourRace"
+            app:layout_constraintTop_toBottomOf="@+id/charName" />
+
+        <RadioButton
+            android:id="@+id/radioButton_THIEF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:text="Thief"
+            app:layout_constraintStart_toEndOf="@+id/pickYourRace"
+            app:layout_constraintTop_toBottomOf="@+id/charName" />
+
+        <RadioButton
+            android:id="@+id/radioButton_TINKER"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:text="Tinker"
+            app:layout_constraintStart_toEndOf="@+id/pickYourRace"
+            app:layout_constraintTop_toBottomOf="@+id/charName" />
+
+        <RadioButton
+            android:id="@+id/radioButton_VAGRANT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:text="Vagrant"
+            app:layout_constraintStart_toEndOf="@+id/pickYourRace"
+            app:layout_constraintTop_toBottomOf="@+id/charName" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/pbDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="@string/arbiterDesc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playbookRadio" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
