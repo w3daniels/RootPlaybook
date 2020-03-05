@@ -18,7 +18,7 @@ public class ChooseYourLook extends AppCompatActivity {
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
-        String name = extras.getString(DisplayMessageActivity.EXTRA_MESSAGE);
+        String name = extras.getString(DisplayMessageActivity.CHAR_NAME);
 
         // Capture the Character Name, Class, and Species and set the strings as their text
         TextView nameTextView = findViewById(R.id.charName2);

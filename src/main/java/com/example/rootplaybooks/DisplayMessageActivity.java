@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -22,7 +21,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
     private RadioButton special;
     private String selectedSpecies = "Fox";
 
-    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE3";
+    public static final String CHAR_NAME = "com.example.myfirstapp.MESSAGE3";
     public static final String CLASS_CHOSEN = "com.example.myfirstapp.MESSAGE4";
     public static final String SPECIES_CHOSEN = "com.example.myfirstapp.MESSAGE5";
 
@@ -54,23 +53,23 @@ public class DisplayMessageActivity extends AppCompatActivity {
         TextView classTextView = findViewById(R.id.classTextView);
         classTextView.setText(charClass);
 
-        customSpecies = findViewById(R.id.customeSpecies);
+        customSpecies = findViewById(R.id.customSpecies);
 
-        RadioGroup srg = findViewById(R.id.speciesRadio);
-            srg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(RadioGroup group, int checkedId) {
-                    if(checkedId == R.id.radioButton_FITB){
-                        customSpecies.setEnabled(true);
-                        customSpecies.setHint("Enter Your Custom Species");
-                        customSpecies.setAlpha(1);
-                    }
-                    else {
-                        customSpecies.setAlpha(0);
-                        customSpecies.setEnabled(false);
-                    }
+
+        /**srg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+                if(checkedId == R.id.radioButton_FITB){
+                    customSpecies.setEnabled(true);
+                    customSpecies.setHint("Enter Your Custom Species");
+                    customSpecies.setAlpha(1);
                 }
-            });
+                else {
+                    customSpecies.setAlpha(0);
+                    customSpecies.setEnabled(false);
+                }
+            }
+        });*/
 
         specialSpecies = findViewById(R.id.radioButton_SPECIAL);
         //Determines special species and assigns it to radio button
@@ -107,24 +106,31 @@ public class DisplayMessageActivity extends AppCompatActivity {
                     selectedSpecies = special.getText().toString();
                 }
                 else {
-                    selectedSpecies = customSpecies.getText().toString();
+                    customSpecies.setEnabled(true);
+                    customSpecies.setHint("Enter Your Custom Species");
+                    customSpecies.setAlpha(1); //enables text box for custom species...does not set the input to selectedSpecies yet
+                    EditText custSpecies = findViewById(R.id.customSpecies);
+                    selectedSpecies = custSpecies.getText().toString();
                 }
             }
         });
+
+
     }
 
     public void sendMessage(View view) {
 
-        Intent intent = new Intent(DisplayMessageActivity.this, ChooseYourLook.class);
+        Intent intent = new Intent(this, ChooseYourLook.class);
         Bundle extras = new Bundle();
-        TextView charName = findViewById(R.id.charName);
+        TextView charName = findViewById(R.id.CharName);
         String name = charName.getText().toString();
+        extras.putString(CHAR_NAME, name);
         TextView charClass = findViewById(R.id.classTextView);
-        String selectedClass = charClass.getText().toString();
-        extras.putString(EXTRA_MESSAGE, name);
-        extras.putString(CLASS_CHOSEN, selectedClass);
+        String classChosen = charClass.getText().toString();
+        extras.putString(CLASS_CHOSEN, classChosen);
         extras.putString(SPECIES_CHOSEN, selectedSpecies);
         intent.putExtras(extras);
         startActivity(intent);
+
     }
 }
