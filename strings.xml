@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Root Playbooks</string>
+    <string name="edit_message">Enter Your Name</string>
+    <string name="button_send">Submit</string>
+    <string name="pick_race">Pick Your Race</string>
+    <string name="pick_class">Pick Your Class</string>
+    <string name="the">THE</string>
+    <string name="choose_pb">Choose a Playbook</string>
+    <string name="arbiterDesc">A powerful, obstinate vagabond, serving as somewhere between a mercenary and a protector, perhaps taking sides to easily in the greater conflict between the factions.</string>
+    <string name="defaultClassVal">Arbiter</string>
+</resources>
