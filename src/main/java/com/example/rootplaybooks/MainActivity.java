@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         Bundle extras = new Bundle();
         EditText charName = findViewById(R.id.charName);
         String name = charName.getText().toString();
-        extras.putString(EXTRA_MESSAGE, name);
+        extras.putString(EXTRA_MESSAGE, name); //todo figure out a way to store these to easily access them in any activity
         extras.putString(CLASS_CHOSEN, selectedClass);
         intent.putExtras(extras);
         startActivity(intent);

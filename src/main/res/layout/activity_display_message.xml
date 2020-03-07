@@ -130,6 +130,7 @@
         android:layout_marginTop="16dp"
         android:alpha="0"
         android:hint=""
+        android:inputType="textPersonName|textCapWords"
         android:text=""
         app:layout_constraintStart_toEndOf="@+id/pickSpeciesTV"
         app:layout_constraintTop_toBottomOf="@+id/speciesRadio" />

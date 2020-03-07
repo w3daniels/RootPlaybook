@@ -4,11 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+
 
 public class DisplayMessageActivity extends AppCompatActivity {
     private RadioButton specialSpecies;
@@ -56,21 +60,6 @@ public class DisplayMessageActivity extends AppCompatActivity {
         customSpecies = findViewById(R.id.customSpecies);
 
 
-        /**srg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
-                if(checkedId == R.id.radioButton_FITB){
-                    customSpecies.setEnabled(true);
-                    customSpecies.setHint("Enter Your Custom Species");
-                    customSpecies.setAlpha(1);
-                }
-                else {
-                    customSpecies.setAlpha(0);
-                    customSpecies.setEnabled(false);
-                }
-            }
-        });*/
-
         specialSpecies = findViewById(R.id.radioButton_SPECIAL);
         //Determines special species and assigns it to radio button
         if (charClass.contains("Arbiter")) {
@@ -92,29 +81,55 @@ public class DisplayMessageActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if(i==R.id.radioButton_FOX){
                     selectedSpecies = fox.getText().toString();
+                    customSpecies.setEnabled(false);
+                    customSpecies.setAlpha(0);
                 }
                 else if(i==R.id.radioButton_MOUSE){
                     selectedSpecies = mouse.getText().toString();
+                    customSpecies.setEnabled(false);
+                    customSpecies.setAlpha(0);
                 }
                 else if(i==R.id.radioButton_RABBIT){
                     selectedSpecies = rabbit.getText().toString();
+                    customSpecies.setEnabled(false);
+                    customSpecies.setAlpha(0);
                 }
                 else if(i==R.id.radioButton_BIRD){
                     selectedSpecies = bird.getText().toString();
+                    customSpecies.setEnabled(false);
+                    customSpecies.setAlpha(0);
                 }
                 else if(i==R.id.radioButton_SPECIAL){
                     selectedSpecies = special.getText().toString();
+                    customSpecies.setEnabled(false);
+                    customSpecies.setAlpha(0);
                 }
                 else {
                     customSpecies.setEnabled(true);
                     customSpecies.setHint("Enter Your Custom Species");
-                    customSpecies.setAlpha(1); //enables text box for custom species...does not set the input to selectedSpecies yet
-                    EditText custSpecies = findViewById(R.id.customSpecies);
-                    selectedSpecies = custSpecies.getText().toString();
+                    customSpecies.setAlpha(1); //enables text box for custom species
+                    selectedSpecies = customSpecies.getText().toString();
+                    customSpecies.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable s) {
+                            selectedSpecies = customSpecies.getText().toString();
+                        }
+                    });
+                    //custSpeciesBool = TRUE; //boolean for button press to check in order to update customSpecies
+                    //todo decide whether to do this as a popup or an EditText and how to actually set it as selectedSpecies
                 }
             }
         });
-
 
     }
 
